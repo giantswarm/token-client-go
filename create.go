@@ -1,10 +1,10 @@
 package client
 
 import (
+	"encoding/json"
 	"io"
-  "strings"
-  "encoding/json"
 	"net/http"
+	"strings"
 
 	"github.com/juju/errgo"
 )
