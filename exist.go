@@ -4,7 +4,7 @@ import (
 	apiSchemaPkg "github.com/catalyst-zero/api-schema"
 )
 
-func (this *Client) Exist(userId string) (bool, error) {
+func (this *Client) UserHasToken(userId string) (bool, error) {
 	zeroVal := false
 
 	res, err := this.get(this.endpointUrl("/token/" + userId + "/exist"))
