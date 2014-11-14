@@ -8,7 +8,7 @@ var (
 	ErrTokenNotFound      = errgo.New("Token not found")
 	ErrUnexpectedResponse = errgo.New("Unexpected response from token service")
 
-	Mask = errgo.MaskFunc()
+	Mask = errgo.MaskFunc(IsErrTokenNotFound)
 )
 
 func IsErrTokenNotFound(err error) bool {
