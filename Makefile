@@ -31,6 +31,7 @@ $(BIN): $(SOURCE)
 	GOPATH=$(GOPATH) go build -o $(BIN)
 
 run-tests:
+	# Before running these tests, start a tokend on localhost:8080
 	GOPATH=$(GOPATH) go test ./...
 
 fmt:
