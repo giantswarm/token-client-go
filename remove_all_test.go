@@ -26,14 +26,14 @@ func TestRemoveAll(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	_, err = c.Get(token1.Id)
+	t1, err := c.Get(token1.Id)
 	if err == nil {
-		t.Fatal("Expected a not found error")
+		t.Errorf("Expected a not found error got token %v", t1)
 	}
 
-	_, err = c.Get(token2.Id)
+	t2, err := c.Get(token2.Id)
 	if err == nil {
-		t.Fatal("Expected a not found error")
+		t.Errorf("Expected a not found error, got token %v", t2)
 	}
 }
 
