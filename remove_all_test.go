@@ -21,7 +21,7 @@ func TestRemoveAll(t *testing.T) {
 	}
 
 	// Remove all tokens for the user, should be ok
-	_, err = c.RemoveAll(userId)
+	err = c.RemoveAll(userId)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -44,7 +44,7 @@ func TestRemoveAllNotFound(t *testing.T) {
 	}
 
 	// Remove the token, should be ok
-	_, err = c.RemoveAll("non-existing-user-id")
+	err = c.RemoveAll("non-existing-user-id")
 	if err != nil {
 		t.Fatal(err)
 	}

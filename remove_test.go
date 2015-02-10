@@ -17,7 +17,7 @@ func TestRemove(t *testing.T) {
 	}
 
 	// Remove the token, should be ok
-	_, err = c.Remove(token.Id)
+	err = c.Remove(token.Id)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -35,7 +35,7 @@ func TestRemoveNotFound(t *testing.T) {
 	}
 
 	// Remove the token, should be ok
-	_, err = c.Remove("non-existing-token-id")
+	err = c.Remove("non-existing-token-id")
 	if err != nil {
 		t.Fatal(err)
 	}
