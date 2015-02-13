@@ -2,8 +2,6 @@ package client
 
 import (
 	"testing"
-
-	apiSchemaPkg "github.com/catalyst-zero/api-schema"
 )
 
 func TestCreate(t *testing.T) {
@@ -12,13 +10,9 @@ func TestCreate(t *testing.T) {
 		t.Fatal(err)
 	}
 	userId := "test"
-	resp, err := apiSchemaPkg.FromHTTPResponse(c.Create(userId))
+	_, err = c.Create(userId)
 	if err != nil {
 		t.Fatal(err)
-	}
-	var token Token
-	if err := resp.UnmarshalData(&token); err != nil {
-		t.Fatalf("Cannot unmarshal token %v", err)
 	}
 }
 
@@ -28,7 +22,7 @@ func TestCreateEmpty(t *testing.T) {
 		t.Fatal(err)
 	}
 	userId := ""
-	_, err = apiSchemaPkg.FromHTTPResponse(c.Create(userId))
+	_, err = c.Create(userId)
 	if err == nil {
 		t.Fatal("Expected an error")
 	} else if err.Error() != "Invalid arguments" {
@@ -41,13 +35,6 @@ func testCreate(userId string) (*Token, error) {
 	if err != nil {
 		return nil, err
 	}
-	resp, err := apiSchemaPkg.FromHTTPResponse(c.Create(userId))
-	if err != nil {
-		return nil, err
-	}
-	token := &Token{}
-	if err := resp.UnmarshalData(token); err != nil {
-		return nil, err
-	}
-	return token, nil
+	token, err := c.Create(userId)
+	return &token, err
 }

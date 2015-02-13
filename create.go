@@ -3,23 +3,31 @@ package client
 import (
 	"encoding/json"
 	"io"
-	"net/http"
 	"strings"
+
+	apiSchemaPkg "github.com/catalyst-zero/api-schema"
 )
 
-func (this *Client) Create(userId string) (*http.Response, error) {
+func (this *Client) Create(userId string) (Token, error) {
+	zeroVal := Token{}
+
 	// Create payload and hash password.
 	reader, err := newCreateTokenPayload(userId)
 	if err != nil {
-		return nil, Mask(err)
+		return zeroVal, Mask(err)
 	}
 
 	res, err := this.post(this.endpointUrl("/token/"), "application/json", reader)
 	if err != nil {
-		return nil, Mask(err)
+		return zeroVal, Mask(err)
 	}
 
-	return res, nil
+	var token Token
+	if err := apiSchemaPkg.ParseData(&res.Body, &token); err != nil {
+		return zeroVal, Mask(err)
+	}
+
+	return token, nil
 }
 
 func newCreateTokenPayload(userId string) (io.Reader, error) {
