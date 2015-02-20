@@ -1,7 +1,7 @@
 package client
 
 import (
-	apiSchemaPkg "github.com/catalyst-zero/api-schema"
+	apiSchemaPkg "github.com/giantswarm/api-schema"
 )
 
 func (this *Client) Get(tokenId string) (Token, error) {
