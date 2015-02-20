@@ -5,7 +5,7 @@ import (
 	"io"
 	"strings"
 
-	apiSchemaPkg "github.com/catalyst-zero/api-schema"
+	apiSchemaPkg "github.com/giantswarm/api-schema"
 )
 
 func (this *Client) Create(userId string) (Token, error) {
