@@ -14,6 +14,8 @@ SOURCE=$(shell find . -name '*.go')
 
 all: get-deps $(BIN)
 
+ci: clean all 
+
 clean:
 	rm -rf $(BUILD_PATH) $(BIN)
 
@@ -30,7 +32,7 @@ get-deps: .gobuild
 $(BIN): $(SOURCE)
 	GOPATH=$(GOPATH) go build -o $(BIN)
 
-run-tests:
+run-integration-tests:
 	# Before running these tests, start a tokend on localhost:8080
 	GOPATH=$(GOPATH) go test ./...
 
