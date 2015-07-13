@@ -1,5 +1,5 @@
 PROJECT=token-client-go
-
+ 
 BUILD_PATH := $(shell pwd)/.gobuild
 
 D0_PATH := "$(BUILD_PATH)/src/github.com/giantswarm"
