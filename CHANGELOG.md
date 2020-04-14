@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] 2020-04-14
+
+### Changed
+
+- Migrated to go modules
+
 ## [0.4.0] 2020-04-14
 
 ### Added
@@ -14,5 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release
 
 
-[Unreleased]: https://github.com/giantswarm/token-client-go/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/giantswarm/token-client-go/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/giantswarm/token-client-go/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/giantswarm/token-client-go/releases/tag/v0.4.0
